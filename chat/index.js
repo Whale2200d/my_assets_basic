@@ -27,7 +27,9 @@ io.on('connection', (socket) => {
   // socket.broadcast.emit('hi');
 
   socket.on('chat message', (msg) => {
-    console.log('message: ' + msg);
+    // console.log('message: ' + msg);
+    // In this case, for the sake of simplicity we’ll send the message to everyone, including the sender.
+    io.emit('chat message', msg);
   });
 });
 
